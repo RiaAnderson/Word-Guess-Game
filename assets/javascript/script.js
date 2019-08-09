@@ -1,8 +1,46 @@
-// // var name = prompt("what's your name?");
-// // console.log("Hello " + name);
-// // document.write(name);
+// Variables/arrays
+var coffeeWords = [
+    "americano",
+    "cappuccino",
+    "mocha",
+    "espresso",
+    "macchiato",
+    "latte",
+    "tea",
+    "steamer",
+];
+console.log(coffeeWords);
 
-// // Pick a random word
+var words = "";
+var answerArray = [];
+var blankLines = 0;
+var lettersRight = [];
+var lettersWrong = [];
+
+//Counters
+
+var guessesLeft = 7;
+var winCount = 0;
+var lossCount = 0;
+
+
+// Functions
+function hangmanGame () {
+    word = coffeeWords[Math.floor(Math.random() * coffeeWords.length)];
+    console.log(word);
+}
+
+
+// Process
+hangmanGame();
+
+
+
+// var name = prompt("what's your name?");
+// console.log("Hello " + name);
+// document.write(name);
+
+// Pick a random word
 // var coffeeWords = [
 //     "americano",
 //     "cappuccino",

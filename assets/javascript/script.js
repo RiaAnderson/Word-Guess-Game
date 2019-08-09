@@ -1,5 +1,6 @@
-var name = prompt("what's your name?");
-console.log("Hello " + name);
+// var name = prompt("what's your name?");
+// console.log("Hello " + name);
+// document.write(name);
 
 // Pick a random word
 var coffeeWords = [
@@ -17,14 +18,48 @@ console.log(coffeeWords);
 var word = coffeeWords[Math.floor(Math.random() * coffeeWords.length)];
 
 var answerArray = [];
-for (var i = 0 < word.length; i++ ){
+for (var i = 0; i < word.length; i++ ){
     answerArray[i] = "_";
 }
+console.log(answerArray);
+
 
 var remainingLetters = word.length;
 
+while (remainingLetters > 0) {
+    alert(answerArray.join(" "));
+
+    var guess = prompt("Guess a letter.");
+    if (guess === null) {
+        break;
+    } else if (guess.length !== 1) {
+        alert("Please enter a single letter.");
+       } else {
+
+    for (var j = 0; j < word.length; j++) {
+        if (word[j] === guess) {
+            answerArray[j] = guess;
+            remainingLetters --;
+            }
+        }
+    }
+    
 
 
+}
+alert(answerArray.join(" "));
+alert("Good job! The answer was " + word + "!");
+// var html =  
+//           "<p>Guess a letter.</p>" +
+//            answerArray +
+//           "<p> Wins: " + wins + "</p>" +
+//           "<p> Losses: " + losses + "</p>";
+          
+
+  // Game code goes here
+//     // Show the player their progress
+//     // Take input from the player
+//     // Update answerArray and remainingLetters for every correct guess
 
 // While the word has not been guessed {
 //  Show the player their current progress

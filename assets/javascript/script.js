@@ -11,11 +11,11 @@ var coffeeWords = [
 ];
 console.log(coffeeWords);
 
-var words = "";
-var answerArray = [];
-var blankLines = 0;
-var lettersRight = [];
-var lettersWrong = [];
+var selectedWord = "";
+var lettersInWord = [];
+var numBlanks = 0;
+var blanksAndSuccesess = [];
+var wrongLeters = [];
 
 //Counters
 
@@ -26,8 +26,23 @@ var lossCount = 0;
 
 // Functions
 function hangmanGame () {
-    word = coffeeWords[Math.floor(Math.random() * coffeeWords.length)];
-    console.log(word);
+    selectedWord = coffeeWords[Math.floor(Math.random() * coffeeWords.length)];
+    console.log(selectedWord);
+    lettersInWord = selectedWord.split("");
+    console.log(lettersInWord);
+    numBlanks = lettersInWord.length;
+    console.log(numBlanks);
+
+    guessesLeft = 7;
+    winCount = [];
+    blanksAndSuccesess = [];
+
+    for (var i = 0; i < numBlanks; i++ ){
+        blanksAndSuccesess.push("_");
+        console.log(blanksAndSuccesess);
+    }
+
+    document.getElementById(wordToGuess).innerHTML = blanksAndSuccesess.join(" ");
 }
 
 
@@ -118,4 +133,4 @@ hangmanGame();
 // //  }
 // // }
 
-// // Congratulate the player on guessing the word
+// Congratulate the player on guessing the word//

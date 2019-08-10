@@ -1,4 +1,4 @@
-// Variables/arrays
+// Variables/arrays*****************************
 var coffeeWords = [
     "americano",
     "cappuccino",
@@ -18,31 +18,37 @@ var numBlanks = 0;
 var blanksAndSuccesess = [];
 var wrongLetters = [];
 
-//Counters
+//Game Counters
 
 var guessesLeft = 7;
 var winCount = 0;
 var lossCount = 0;
 
 
-// Functions
+// //Functions**************************************
 function startgame () {
     selectedWord = coffeeWords[Math.floor(Math.random() * coffeeWords.length)];
     console.log(selectedWord);
+
     lettersInWord = selectedWord.split("");
     console.log(lettersInWord);
+
     numBlanks = lettersInWord.length;
     console.log(numBlanks);
 
+//     //Reset
     guessesLeft = 7;
-    winCount = [];
+    wrongLetters = [];
     blanksAndSuccesess = [];
 
-    for (var i = 0; i < numBlanks; i++ ){
-        blanksAndSuccesess.push("_");
-        console.log(blanksAndSuccesess);
-    }
+    //Populate blanksAndSuccesess with correct number of blanks.
 
+    for (var i=0; i<numBlanks; i++) {
+        blanksAndSuccesess.push("_");
+    }
+    // console.log(blanksAndSuccesess);
+
+    // //Change HTML
     document.getElementById("wordToGuess").innerHTML = blanksAndSuccesess.join(" ");
     document.getElementById("numGuesses").innerHTML = guessesLeft;
     document.getElementById("winCounter").innerHTML = winCount;
@@ -50,63 +56,80 @@ function startgame () {
 }
 
 function checkLetters(letter) {
+    
     var isLetterInWord = false;
 
     for (var i=0; i<numBlanks; i++) {
         if(selectedWord[i] == letter) {
         isLetterInWord = true;
+        //alert("letter found");
         }
     }
+ 
+    //Check if letter is in word and populate
     if(isLetterInWord) {
         for (var i=0; i<numBlanks; i++) {
             if(selectedWord[i] == letter) {
-                blanksAndSuccesess[i] = letter;
-                console.log(TesT);
+                blanksAndSuccesess[i] = letter;                
             }
         }
     }
+    //Letter was not found
     else {
         wrongLetters.push(letter);
-        guessesLeft--;
+        guessesLeft--
     }
-console.log(blanksAndSuccesess);
-}
+    //testing
+    console.log(blanksAndSuccesess);
+ }
 
 function roundComplete(){
-    console.log("Rounds won: " + winCount + "| Rounds lost: " + lossCount + " | Guesses left: " + numGuesses);
+    console.log("Rounds won: " + winCount + "| Rounds lost: " + lossCount + " | Guesses left: " + guessesLeft);
 
-document.getElementById("numGuesses").innerHTML = guessesLeft
+    //Update HTML with stats
+document.getElementById("numGuesses").innerHTML = guessesLeft;
 document.getElementById("wordToGuess").innerHTML = blanksAndSuccesess.join(" ");
-document.getElementById("wrongGuesses").innerHTML = blanksAndSuccesess.join(" ");
+document.getElementById("wrongGuesses").innerHTML = wrongLetters.join(" ");
 
+//Check if user one
     if (lettersInWord.toString() == blanksAndSuccesess.toString()) {
         winCount++;
-        alert("you Won!");
+        alert("You Won!");
         
+        //Update win counter
         document.getElementById("winCounter").innerHTML = winCount; 
-
         startgame();
-    }
-
-    else if (guessesLeft = 0) {
+     }
+    
+// Check if user lost
+    else if (guessesLeft == 0) {
         lossCount++;
         alert("You Lost!");
-        document.getElementById("lossCount").innerHTML = lossCount;
-    }
-    startgame();
+        document.getElementById("lossCounter").innerHTML = lossCount;
+
+        startgame();
+ }
 }
 
-// Process
+// // Main Process*********************************
+//Initiates the code
 startgame();
 
 document.onkeyup = function(event) {
-    var letterGuessed = String.fromCharCode(event.keycode).toLowerCase();
+    var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
     checkLetters(letterGuessed);
-    console.log(letterGuessed);
+  
     roundComplete();
-    
 
-}
+    console.log(letterGuessed);
+ }
+
+
+
+
+
+
+
 
 
 // var name = prompt("what's your name?");
@@ -191,4 +214,4 @@ document.onkeyup = function(event) {
 // //  }
 // // }
 
-// Congratulate the player on guessing the word//
+// Congratulate the player on guessing the word

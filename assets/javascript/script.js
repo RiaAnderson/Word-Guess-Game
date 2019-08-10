@@ -11,11 +11,12 @@ var coffeeWords = [
 ];
 console.log(coffeeWords);
 
+
 var selectedWord = "";
 var lettersInWord = [];
 var numBlanks = 0;
 var blanksAndSuccesess = [];
-var wrongLeters = [];
+var wrongLetters = [];
 
 //Counters
 
@@ -25,7 +26,7 @@ var lossCount = 0;
 
 
 // Functions
-function hangmanGame () {
+function startgame () {
     selectedWord = coffeeWords[Math.floor(Math.random() * coffeeWords.length)];
     console.log(selectedWord);
     lettersInWord = selectedWord.split("");
@@ -42,13 +43,70 @@ function hangmanGame () {
         console.log(blanksAndSuccesess);
     }
 
-    document.getElementById(wordToGuess).innerHTML = blanksAndSuccesess.join(" ");
+    document.getElementById("wordToGuess").innerHTML = blanksAndSuccesess.join(" ");
+    document.getElementById("numGuesses").innerHTML = guessesLeft;
+    document.getElementById("winCounter").innerHTML = winCount;
+    document.getElementById("lossCounter").innerHTML = lossCount;
 }
 
+function checkLetters(letter) {
+    var isLetterInWord = false;
+
+    for (var i=0; i<numBlanks; i++) {
+        if(selectedWord[i] == letter) {
+        isLetterInWord = true;
+        }
+    }
+    if(isLetterInWord) {
+        for (var i=0; i<numBlanks; i++) {
+            if(selectedWord[i] == letter) {
+                blanksAndSuccesess[i] = letter;
+                console.log(TesT);
+            }
+        }
+    }
+    else {
+        wrongLetters.push(letter);
+        guessesLeft--;
+    }
+console.log(blanksAndSuccesess);
+}
+
+function roundComplete(){
+    console.log("Rounds won: " + winCount + "| Rounds lost: " + lossCount + " | Guesses left: " + numGuesses);
+
+document.getElementById("numGuesses").innerHTML = guessesLeft
+document.getElementById("wordToGuess").innerHTML = blanksAndSuccesess.join(" ");
+document.getElementById("wrongGuesses").innerHTML = blanksAndSuccesess.join(" ");
+
+    if (lettersInWord.toString() == blanksAndSuccesess.toString()) {
+        winCount++;
+        alert("you Won!");
+        
+        document.getElementById("winCounter").innerHTML = winCount; 
+
+        startgame();
+    }
+
+    else if (guessesLeft = 0) {
+        lossCount++;
+        alert("You Lost!");
+        document.getElementById("lossCount").innerHTML = lossCount;
+    }
+    startgame();
+}
 
 // Process
-hangmanGame();
+startgame();
 
+document.onkeyup = function(event) {
+    var letterGuessed = String.fromCharCode(event.keycode).toLowerCase();
+    checkLetters(letterGuessed);
+    console.log(letterGuessed);
+    roundComplete();
+    
+
+}
 
 
 // var name = prompt("what's your name?");

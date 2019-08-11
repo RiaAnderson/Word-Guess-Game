@@ -1,0 +1,31 @@
+* {
+    font-family: 'Dosis', sans-serif;
+}
+
+body {
+    background-image: url("../images/coffeeshop.jpg");
+    background-color: #cccccc;
+    /* background-repeat: no-repeat; */
+    background-size: 100% 100%;
+    margin-top: 2.2%;
+    margin-bottom: 2.2%;
+   }
+
+.jumbotron {
+    background-color: #d7ccc8;
+   }
+
+.card {
+    background-color: #d7ccc8;
+   }
+   
+.list-group-item {
+    background-color: #d7ccc8;
+   }
+
+.card-img-bottom {
+    color: #ccc;
+    height: 10rem;
+    background: url(../images/espresso.jpg) center no-repeat;
+    background-size: cover;
+  }

@@ -5,50 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>Hangman Game</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
 
-    
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">  
   </head>
 <body>
 
   <div class="container">
-
+<!-- Name and instructions -->
     <div class="jumbotron">
-      <h1>Hangman</h1>
-      <h2>Coffee Shop Edition</h2>
-      <p>Instructions</p>
+      <div class="row">
+          <div class="col-md-6">
+            <div class="card-block">
+              <h1 class="card-title">Hangman</h1>
+              <h2 class="card-text">Coffee Shop Edition</h2>
+              <p class="card-text">Press any key to get started!</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card-img-bottom">
+            </div>
+          </div>
+        </div>
     </div>
-    
+
+    <!-- display are for word -->
     <div class="card" >
         <div class="card-header">
           <h4><strong>Can you guess the word?</strong></h4>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"> <h5 id="wordToGuess">space holder</h5></li>
+          <li class="list-group-item"> <h5 id="wordToGuess"></h5></li>
         </ul>
     </div>
 
+    <!-- Wrong guesses -->
     <div class="card">
         <div class="card-body">
           Wrong guesses: <span id="wrongGuesses"></span>
         </div>
     </div>
 
+    <!-- Guess left -->
     <div class="card">
         <div class="card-body">
           Guesses left: <span id="numGuesses"></span>
         </div>
     </div>
 
+    <!-- Rounds won/Lost -->
     <div class="card">
         <div class="card-body">
           Rounds won: <span id="winCounter"></span>
         </div>
     </div>
-
     <div class="card">
         <div class="card-body">
           Rounds lost: <span id="lossCounter"></span>
@@ -58,26 +70,6 @@
     <script type="text/javascript" src="assets/javascript/script.js"></script>
 
 </div>
-
-        <!-- Choose a theme for your game! In the demo, we picked an 80s theme: 80s questions, 80s sound and an 80s aesthetic. You can choose any subject for your theme, though, so be creative!
-            Coffee shop drinks
-            sound of coffee pouring  -->
-            
-            <!-- Have output got for user instructions. -->
-            
-
-            <!-- Problem: How to get user input?
-            Solution: Get user input using keypress. Store info in variable for later use.document. -->
-
-            <!-- Problem: How to track wins, loses, and ties -->
-
-            <!-- Problem: Display results to the browser.
-            Solution: Create a variable to stire a sting, interspersed with data from results of game. Display the data using a query selector.  -->
-
-            <!-- Problem: Change picture after each win and play sound. -->
-
-            <!-- Creating a variable to hold out new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties. -->
-
 
         
        
